@@ -1,0 +1,3 @@
+[submodule "can_driver"]
+	path = can_driver
+	url = https://github.com/scalpelspace/can_driver
