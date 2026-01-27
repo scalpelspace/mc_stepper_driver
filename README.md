@@ -1,7 +1,5 @@
 # mc_stepper_driver
 
-![black_formatter](https://github.com/scalpelspace/mc_stepper_driver/actions/workflows/black_formatter.yaml/badge.svg)
-
 Low level communication drivers for the Stepper Motor Controller dev board
 running the [mc_stepper](https://github.com/scalpelspace/mc_stepper) firmware.
 
