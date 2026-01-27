@@ -40,8 +40,24 @@ BO_ 257 state: 1 Vector__XXX
  SG_ system_state : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 304 absolute_encoder: 4 Vector__XXX
- SG_ raw_position : 0|16@1+ (0,-1) [-1|1] "count" Vector__XXX
- SG_ angle : 16|16@1+ (0,360) [-1|1] "degrees" Vector__XXX
+ SG_ raw_position : 0|16@1+ (1,-1) [0|16383] "count" Vector__XXX
+ SG_ status : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 529 command_stepper: 8 Vector__XXX
+ SG_ control_mode : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ enable : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ clear_faults : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ reserved0 : 5|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ target_position : 8|32@1- (1,0) [-2147483648|2147483647] "ustep" Vector__XXX
+ SG_ target_vel : 40|16@1- (1,0) [-32768|32767] "ustep/s" Vector__XXX
+
+BO_ 530 command_stepper_current: 6 Vector__XXX
+ SG_ update_current : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ persist : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ reserved0 : 2|6@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ run_ma : 8|16@1+ (1,0) [0|3000] "mA" Vector__XXX
+ SG_ hold_ma : 24|16@1+ (1,0) [0|3000] "mA" Vector__XXX
+ SG_ hold_delay : 40|8@1+ (1,0) [0|255] "" Vector__XXX
 
 
 
