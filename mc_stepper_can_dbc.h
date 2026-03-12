@@ -17,10 +17,25 @@
 extern "C" {
 #endif
 
+/** DBC message index enum. **************************************************/
+
+typedef enum {
+  MC_STEPPER_CAN_DBC_IDX_STATE = 0,
+  MC_STEPPER_CAN_DBC_IDX_COMMAND_STEPPER = 1,
+  MC_STEPPER_CAN_DBC_IDX_COMMAND_STEPPER_CURRENT = 2,
+  MC_STEPPER_CAN_DBC_IDX_ABSOLUTE_ENCODER = 3,
+  MC_STEPPER_CAN_DBC_IDX_DATETIME_SET = 4,
+  MC_STEPPER_CAN_DBC_IDX_DATETIME_GET = 5,
+  MC_STEPPER_CAN_DBC_IDX_DATETIME_GET_RESPONSE = 6,
+  MC_STEPPER_CAN_DBC_IDX_VERSION_GET = 7,
+  MC_STEPPER_CAN_DBC_IDX_VERSION_GET_RESPONSE = 8,
+
+  MC_STEPPER_CAN_DBC_IDX_COUNT // Total message count.
+} mc_stepper_can_dbc_index_t;
+
 /** Public variables. *********************************************************/
 
 extern const can_message_t dbc_messages[];
-extern const int dbc_message_count;
 
 /** CPP guard close. **********************************************************/
 
