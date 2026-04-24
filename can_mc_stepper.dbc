@@ -69,7 +69,7 @@ BO_ 192 controls_diagnostic: 8 MC_STEPPER
  SG_ position_setpoint : 0|16@1- (0.001,0) [-32.768|32.767] "rad"  LISTENER
  SG_ position_error : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad"  LISTENER
  SG_ velocity_setpoint : 32|16@1- (0.001,0) [-32.768|32.767] "rad/s"  LISTENER
- SG_ velocity_error : 48|16@1- (0.0001,0) [-3.2768|3.2767] "rad/s"  LISTENER
+ SG_ step_rate_command : 48|16@1- (1,0) [-32768|32767] "steps/s"  LISTENER
 
 BO_ 224 datetime_set: 7 COMMANDER
  SG_ year : 0|8@1+ (1,0) [0|99] "year"  MC_STEPPER
