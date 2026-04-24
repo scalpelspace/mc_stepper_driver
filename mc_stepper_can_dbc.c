@@ -213,6 +213,29 @@ const can_message_t dbc_messages[] = {
             },
     },
     {
+        .name = "command_stepper_zero",
+        .message_id = 128,
+        .id_mask = 0xFFFFFFFF,
+        .dlc = 1,
+        .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
+        .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
+        .signal_count = 1,
+        .signals =
+            {
+                {
+                    .name = "node_id",
+                    .start_bit = 0,
+                    .bit_length = 8,
+                    .byte_order = CAN_LITTLE_ENDIAN,
+                    .is_signed = false,
+                    .scale = 1.0f,
+                    .offset = 0.0f,
+                    .min_value = 0.0f,
+                    .max_value = 255.0f,
+                },
+            },
+    },
+    {
         .name = "absolute_encoder",
         .message_id = 160,
         .id_mask = 0xFFFFFFFF,

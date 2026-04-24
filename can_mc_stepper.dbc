@@ -57,6 +57,9 @@ BO_ 96 command_stepper_current: 7 COMMANDER
  SG_ hold_ma : 32|16@1+ (1,0) [0|3000] "mA"  MC_STEPPER
  SG_ hold_delay : 48|8@1+ (1,0) [0|255] ""  MC_STEPPER
 
+BO_ 128 command_stepper_zero: 1 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+
 BO_ 160 absolute_encoder: 4 MC_STEPPER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER
  SG_ raw_position : 8|16@1+ (1,0) [0|16383] "count"  LISTENER
@@ -92,7 +95,6 @@ BO_ 992 version_get_response: 4 MC_STEPPER
 
 
 
-CM_ BO_ 32 "State machine info";
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
