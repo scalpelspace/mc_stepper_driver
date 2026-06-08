@@ -39,7 +39,18 @@ BU_: MC_STEPPER LISTENER COMMANDER REQUESTER
 BO_ 32 state: 1 MC_STEPPER
  SG_ system_state : 0|8@1+ (1,0) [0|255] ""  LISTENER
 
-BO_ 64 command_stepper: 8 COMMANDER
+BO_ 64 stallguard_event: 5 MC_STEPPER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ sg_result : 8|16@1+ (1,0) [0|1023] ""  LISTENER
+ SG_ sgthrs : 24|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ stalled : 32|8@1+ (1,0) [0|1] ""  LISTENER
+
+BO_ 96 absolute_encoder: 4 MC_STEPPER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ raw_position : 8|16@1+ (1,0) [0|16383] "count"  LISTENER
+ SG_ status : 24|8@1+ (1,0) [0|255] ""  LISTENER
+
+BO_ 128 command_stepper: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
  SG_ control_mode : 8|3@1+ (1,0) [0|7] ""  MC_STEPPER
  SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_STEPPER
@@ -48,49 +59,75 @@ BO_ 64 command_stepper: 8 COMMANDER
  SG_ target_position : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_STEPPER
  SG_ target_velocity : 48|16@1- (0.001,0) [-32.768|32.767] "rad/s"  MC_STEPPER
 
-BO_ 96 command_stepper_current: 6 COMMANDER
+BO_ 160 controls_diagnostic: 8 MC_STEPPER
+ SG_ position_setpoint : 0|16@1- (0.001,0) [-32.768|32.767] "rad"  LISTENER
+ SG_ position_error : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad"  LISTENER
+ SG_ velocity_setpoint : 32|16@1- (0.001,0) [-32.768|32.767] "rad/s"  LISTENER
+ SG_ step_rate_command : 48|16@1- (1,0) [-32768|32767] "steps/s"  LISTENER
+
+BO_ 192 command_stepper_zero: 1 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+
+BO_ 224 motion_config_set: 7 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+ SG_ step_size : 8|16@1+ (1,0) [0|256] ""  MC_STEPPER
+ SG_ max_acceleration : 24|16@1+ (0.1,0) [0|6553.5] "rad/s2"  MC_STEPPER
+ SG_ max_velocity : 40|16@1+ (0.001,0) [0|65.535] "rad/s"  MC_STEPPER
+
+BO_ 256 motion_config_get: 1 REQUESTER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+
+BO_ 288 motion_config_response: 6 MC_STEPPER
+ SG_ step_size : 0|16@1+ (1,0) [0|256] ""  REQUESTER
+ SG_ max_acceleration : 16|16@1+ (0.1,0) [0|6553.5] "rad/s2"  REQUESTER
+ SG_ max_velocity : 32|16@1+ (0.001,0) [0|65.535] "rad/s"  REQUESTER
+
+BO_ 320 current_config_set: 6 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
  SG_ run_current_ma : 8|16@1+ (1,0) [0|3000] "mA"  MC_STEPPER
  SG_ current_run : 24|8@1+ (1,0) [0|31] ""  MC_STEPPER
  SG_ current_hold : 32|8@1+ (1,0) [0|31] ""  MC_STEPPER
  SG_ current_hold_delay : 40|8@1+ (1,0) [0|15] ""  MC_STEPPER
 
-BO_ 128 command_stepper_motion: 7 COMMANDER
- SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
- SG_ step_size : 8|16@1+ (1,0) [0|256] ""  MC_STEPPER
- SG_ max_acceleration : 24|16@1+ (0.1,0) [0|6553.5] "rad/s2"  MC_STEPPER
- SG_ max_velocity : 40|16@1+ (0.001,0) [0|65.535] "rad/s"  MC_STEPPER
-
-BO_ 160 command_stepper_zero: 1 COMMANDER
+BO_ 352 current_config_get: 1 REQUESTER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
 
-BO_ 192 absolute_encoder: 4 MC_STEPPER
- SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER
- SG_ raw_position : 8|16@1+ (1,0) [0|16383] "count"  LISTENER
- SG_ status : 24|8@1+ (1,0) [0|255] ""  LISTENER
+BO_ 384 current_config_response: 5 MC_STEPPER
+ SG_ run_current_ma : 0|16@1+ (1,0) [0|3000] "mA"  REQUESTER
+ SG_ current_run : 16|8@1+ (1,0) [0|31] ""  REQUESTER
+ SG_ current_hold : 24|8@1+ (1,0) [0|31] ""  REQUESTER
+ SG_ current_hold_delay : 32|8@1+ (1,0) [0|15] ""  REQUESTER
 
-BO_ 224 controls_tune: 8 COMMANDER
+BO_ 416 controls_config_set: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
  SG_ reserved0 : 8|8@1+ (1,0) [0|255] ""  MC_STEPPER
  SG_ k_p : 16|16@1+ (0.001,0) [0|65.535] ""  MC_STEPPER
  SG_ k_i : 32|16@1+ (0.001,0) [0|65.535] ""  MC_STEPPER
  SG_ k_d : 48|16@1+ (0.001,0) [0|65.535] ""  MC_STEPPER
 
-BO_ 256 controls_tune_get: 1 REQUESTER
+BO_ 448 controls_config_get: 1 REQUESTER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
 
-BO_ 288 controls_tune_get_response: 6 MC_STEPPER
+BO_ 480 controls_config_response: 6 MC_STEPPER
  SG_ k_p : 0|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
  SG_ k_i : 16|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
  SG_ k_d : 32|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
 
-BO_ 320 controls_diagnostic: 8 MC_STEPPER
- SG_ position_setpoint : 0|16@1- (0.001,0) [-32.768|32.767] "rad"  LISTENER
- SG_ position_error : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad"  LISTENER
- SG_ velocity_setpoint : 32|16@1- (0.001,0) [-32.768|32.767] "rad/s"  LISTENER
- SG_ step_rate_command : 48|16@1- (1,0) [-32768|32767] "steps/s"  LISTENER
+BO_ 512 stallguard_set: 3 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+ SG_ enable : 8|8@1+ (1,0) [0|1] ""  MC_STEPPER
+ SG_ sgthrs : 16|8@1+ (1,0) [0|255] ""  MC_STEPPER
 
-BO_ 352 datetime_set: 7 COMMANDER
+BO_ 544 stallguard_get: 1 REQUESTER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+
+BO_ 576 stallguard_response: 5 MC_STEPPER
+ SG_ enable : 0|8@1+ (1,0) [0|1] ""  REQUESTER
+ SG_ sgthrs : 8|8@1+ (1,0) [0|255] ""  REQUESTER
+ SG_ sg_result : 16|16@1+ (1,0) [0|1023] ""  REQUESTER
+ SG_ stalled : 32|8@1+ (1,0) [0|1] ""  REQUESTER
+
+BO_ 608 datetime_set: 7 COMMANDER
  SG_ year : 0|8@1+ (1,0) [0|99] "year"  MC_STEPPER
  SG_ month : 8|8@1+ (1,0) [1|12] "month"  MC_STEPPER
  SG_ date : 16|8@1+ (1,0) [1|31] "day"  MC_STEPPER
@@ -99,9 +136,9 @@ BO_ 352 datetime_set: 7 COMMANDER
  SG_ minutes : 40|8@1+ (1,0) [0|59] "min"  MC_STEPPER
  SG_ seconds : 48|8@1+ (1,0) [0|59] "sec"  MC_STEPPER
 
-BO_ 384 datetime_get: 0 REQUESTER
+BO_ 640 datetime_get: 0 REQUESTER
 
-BO_ 416 datetime_get_response: 7 MC_STEPPER
+BO_ 672 datetime_response: 7 MC_STEPPER
  SG_ year : 0|8@1+ (1,0) [0|99] "year"  REQUESTER
  SG_ month : 8|8@1+ (1,0) [1|12] "month"  REQUESTER
  SG_ date : 16|8@1+ (1,0) [1|31] "day"  REQUESTER
@@ -110,9 +147,14 @@ BO_ 416 datetime_get_response: 7 MC_STEPPER
  SG_ minutes : 40|8@1+ (1,0) [0|59] "min"  REQUESTER
  SG_ seconds : 48|8@1+ (1,0) [0|59] "sec"  REQUESTER
 
+BO_ 704 rgb_led_set: 3 REQUESTER
+ SG_ red : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+ SG_ green : 8|8@1+ (1,0) [0|255] ""  MC_STEPPER
+ SG_ blue : 16|8@1+ (1,0) [0|255] ""  MC_STEPPER
+
 BO_ 960 version_get: 0 REQUESTER
 
-BO_ 992 version_get_response: 4 MC_STEPPER
+BO_ 992 version_response: 4 MC_STEPPER
  SG_ version_major : 0|8@1+ (1,0) [0|255] "major"  REQUESTER
  SG_ version_minor : 8|8@1+ (1,0) [0|255] "minor"  REQUESTER
  SG_ version_patch : 16|8@1+ (1,0) [0|255] "patch"  REQUESTER
