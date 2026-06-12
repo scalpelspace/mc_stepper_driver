@@ -36,8 +36,9 @@ BS_:
 BU_: MC_STEPPER LISTENER COMMANDER REQUESTER
 
 
-BO_ 32 state: 1 MC_STEPPER
+BO_ 32 state: 2 MC_STEPPER
  SG_ system_state : 0|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ mcu_temperature : 8|8@1+ (1,-40) [-40|215] "degC"  LISTENER
 
 BO_ 64 stallguard_event: 5 MC_STEPPER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER

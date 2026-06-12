@@ -15,10 +15,10 @@ const can_message_t dbc_messages[] = {
         .name = "state",
         .message_id = 32,
         .id_mask = 0xFFFFFFFF,
-        .dlc = 1,
+        .dlc = 2,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
         .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
-        .signal_count = 1,
+        .signal_count = 2,
         .signals =
             {
                 {
@@ -31,6 +31,17 @@ const can_message_t dbc_messages[] = {
                     .offset = 0.0f,
                     .min_value = 0.0f,
                     .max_value = 255.0f,
+                },
+                {
+                    .name = "mcu_temperature",
+                    .start_bit = 8,
+                    .bit_length = 8,
+                    .byte_order = CAN_LITTLE_ENDIAN,
+                    .is_signed = false,
+                    .scale = 1.0f,
+                    .offset = -40.0f,
+                    .min_value = -40.0f,
+                    .max_value = 215.0f,
                 },
             },
     },
