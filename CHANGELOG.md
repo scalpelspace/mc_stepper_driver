@@ -27,3 +27,4 @@
     - Update [`can_driver`](can_driver) for tagged version v0.4.0 for muxed
       signal support.
     - Update DBC code generation.
+- Improve DBC message naming and CAN IDs for arbitration.
