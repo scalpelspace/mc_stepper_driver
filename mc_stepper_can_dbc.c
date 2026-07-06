@@ -256,23 +256,10 @@ static const can_signal_t command_stepper_zero_signals[1] = {
     },
 };
 
-static const can_signal_t sensor_signals[3] = {
-    {
-        .name = "tmc2209_sg_result",
-        .start_bit = 0,
-        .bit_length = 16,
-        .byte_order = CAN_LITTLE_ENDIAN,
-        .is_signed = false,
-        .scale = 1.0f,
-        .offset = 0.0f,
-        .min_value = 0.0f,
-        .max_value = 510.0f,
-        .mux_role = CAN_MUX_NONE,
-        .mux_value = 0,
-    },
+static const can_signal_t sensor_signals[2] = {
     {
         .name = "encoder_raw_count",
-        .start_bit = 16,
+        .start_bit = 0,
         .bit_length = 16,
         .byte_order = CAN_LITTLE_ENDIAN,
         .is_signed = true,
@@ -285,7 +272,7 @@ static const can_signal_t sensor_signals[3] = {
     },
     {
         .name = "encoder_position",
-        .start_bit = 32,
+        .start_bit = 16,
         .bit_length = 32,
         .byte_order = CAN_LITTLE_ENDIAN,
         .is_signed = true,
@@ -1176,11 +1163,11 @@ const can_message_t dbc_messages[] = {
         .name = "sensor",
         .message_id = 160,
         .id_mask = 0xFFFFFFFF,
-        .dlc = 8,
+        .dlc = 6,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
         .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
         .signals = sensor_signals,
-        .signal_count = 3,
+        .signal_count = 2,
     },
     {
         .name = "controls_diagnostic",

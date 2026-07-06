@@ -62,10 +62,9 @@ BO_ 96 command_stepper: 6 COMMANDER
 BO_ 128 command_stepper_zero: 1 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
 
-BO_ 160 sensor: 8 MC_STEPPER
- SG_ tmc2209_sg_result : 0|16@1+ (1,0) [0|510] "count"  LISTENER
- SG_ encoder_raw_count : 16|16@1- (1,0) [-32768|32767] "count"  LISTENER
- SG_ encoder_position : 32|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  LISTENER
+BO_ 160 sensor: 6 MC_STEPPER
+ SG_ encoder_raw_count : 0|16@1- (1,0) [-32768|32767] "count"  LISTENER
+ SG_ encoder_position : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  LISTENER
 
 BO_ 192 controls_diagnostic: 8 MC_STEPPER
  SG_ position_setpoint : 0|16@1- (0.001,0) [-32.768|32.767] "rad"  LISTENER
