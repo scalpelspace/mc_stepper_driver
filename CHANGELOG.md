@@ -9,6 +9,7 @@
 * [Changelog](#changelog)
   * [v0.1.0 (2026-07-04)](#v010--2026-07-04-)
   * [v0.2.0 (2026-07-06)](#v020--2026-07-06-)
+  * [v0.2.1 (TBD)](#v021--tbd-)
 <!-- TOC -->
 
 </details>
@@ -24,7 +25,12 @@
 ## [v0.2.0 (2026-07-06)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.2.0)
 
 - Update DBC for new muxed signals.
-    - Update [`can_driver`](can_driver) for tagged version v0.4.0 for muxed
-      signal support.
+    - Update `can_driver` for tagged version v0.4.0 for muxed signal support.
     - Update DBC code generation.
 - Improve DBC message naming and CAN IDs for arbitration.
+
+---
+
+## [v0.2.1 (TBD)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.2.1)
+
+- Cleanup `CHANGELOG.md` for formatting and syntax consistency.
