@@ -1,7 +1,7 @@
 # mc_stepper_driver
 
 Low level communication drivers for the stepper motor controller board running
-the [mc_stepper](https://github.com/scalpelspace/mc_stepper) firmware.
+the [`mc_stepper`](https://github.com/scalpelspace/mc_stepper) firmware.
 
 ---
 
@@ -23,16 +23,16 @@ the [mc_stepper](https://github.com/scalpelspace/mc_stepper) firmware.
 
 ## 1 Overview
 
-CAN drivers are included in the [mc_stepper_driver.h](mc_stepper_driver.h) file
-for simple implementation.
+CAN drivers are included in the [`mc_stepper_driver.h`](mc_stepper_driver.h)
+file for simple implementation.
 
 This repository defines the CAN **protocol contract** for MC Stepper: message
-IDs, DLCs, signal layouts and scaling. The source of truth is the DBC file:
-[can_mc_stepper.dbc](can_mc_stepper.dbc).
+IDs, DLCs, signal layouts and scaling. The source of truth is the DBC file: [
+`can_mc_stepper.dbc`](can_mc_stepper.dbc).
 
 > **Note:** Behavioural semantics (controls state machine, safety gating of
 > config commands, telemetry rates, fault handling) are owned by the
-> [mc_stepper](https://github.com/scalpelspace/mc_stepper) firmware and are
+> [`mc_stepper`](https://github.com/scalpelspace/mc_stepper) firmware and are
 > documented there.
 
 ---
