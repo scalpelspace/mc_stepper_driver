@@ -9,7 +9,7 @@
 * [Changelog](#changelog)
   * [v0.1.0 (2026-07-04)](#v010--2026-07-04-)
   * [v0.2.0 (2026-07-06)](#v020--2026-07-06-)
-  * [v0.2.1 (TBD)](#v021--tbd-)
+  * [v0.2.1 (2026-07-08)](#v021--2026-07-08-)
 <!-- TOC -->
 
 </details>
@@ -31,6 +31,7 @@
 
 ---
 
-## [v0.2.1 (TBD)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.2.1)
+## [v0.2.1 (2026-07-08)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.2.1)
 
 - Cleanup `CHANGELOG.md` for formatting and syntax consistency.
+- Actually add docs on `README.md`.
