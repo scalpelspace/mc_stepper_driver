@@ -11,6 +11,7 @@
   * [v0.2.0 (2026-07-06)](#v020--2026-07-06-)
   * [v0.2.1 (2026-07-08)](#v021--2026-07-08-)
   * [v0.2.2 (2026-07-10)](#v022--2026-07-10-)
+  * [v0.3.0 (2026-09-01)](#v030--2026-09-01-)
 <!-- TOC -->
 
 </details>
@@ -42,3 +43,9 @@
 ## [v0.2.2 (2026-07-10)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.2.2)
 
 - Update `can_driver` to tagged version v0.5.0.
+
+---
+
+## [v0.3.0 (2026-09-01)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.3.0)
+
+- Update `can_driver` to tagged version v0.6.0.
