@@ -43,10 +43,10 @@ CAN drivers are implemented via the [
 `can_driver`](https://github.com/scalpelspace/can_driver) submodule.
 
 All CAN IDs follow the ScalpelSpace node CAN ID standard defined by
-`can_driver`: the 11-bit classic CAN ID is split into a 6-bit `message_id` and
-a 5-bit `node_id`, so a node's on-bus ID is its base message ID plus its
-assigned node ID. Node IDs `0` (unassigned) and `31` (broadcast) are reserved,
-and node IDs are assigned at runtime via the dynamic allocation protocol.
+`can_driver`: the 11-bit classic CAN ID is split into a 6-bit `message_id` and a
+5-bit `node_id`, so a node's on-bus ID is its base message ID plus its assigned
+node ID. Node IDs `0` (unassigned) and `31` (broadcast) are reserved, and node
+IDs are assigned at runtime via the dynamic allocation protocol.
 
 > See the [`can_driver` README](can_driver/README.md) for the full ID scheme,
 > reserved ID ranges and the node ID allocation protocol.
@@ -57,8 +57,8 @@ and node IDs are assigned at runtime via the dynamic allocation protocol.
 
 ### 3.1 Message Table
 
-Direction is from the MC Stepper node's perspective: **TX** = transmitted by
-MC Stepper, **RX** = received by MC Stepper.
+Direction is from the MC Stepper node's perspective: **TX** = transmitted by MC
+Stepper, **RX** = received by MC Stepper.
 
 | Base ID (hex) | Message                    | DLC | Direction | Description                                                                                                                               |
 |--------------:|----------------------------|----:|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -99,6 +99,6 @@ multiplexed by the `control_mode` signal:
 |              3 | `target_position_rel`  | rad   |
 |              4 | `target_position_ol`   | rad   |
 
-All setpoint signals are signed 32-bit with 0.001 scaling. A `control_mode` of
-0 (or any unlisted value) carries no setpoint, allowing frames that only toggle
+All setpoint signals are signed 32-bit with 0.001 scaling. A `control_mode` of 0
+(or any unlisted value) carries no setpoint, allowing frames that only toggle
 `enable` or `clear_faults`.

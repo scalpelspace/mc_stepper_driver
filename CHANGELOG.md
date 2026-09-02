@@ -49,3 +49,4 @@
 ## [v0.3.0 (2026-09-01)](https://github.com/scalpelspace/mc_stepper_driver/releases/tag/v0.3.0)
 
 - Update `can_driver` to tagged version v0.6.0.
+- Minor cleanup for `README.md`.
